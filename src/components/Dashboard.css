@@ -1,0 +1,149 @@
+.dashboard {
+    padding: 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dashboard-tabs {
+    display: flex;
+    margin-right: 20px;
+  }
+  
+  .tab {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 20px;
+  }
+  
+  .tab.active {
+    background-color: #A9E9AF;
+  }
+  
+  .add-document {
+    font-weight: 500;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #000;
+    color: #A9E9AF;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+  
+  .add-document .icon {
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .dashboard-search-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .filter-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .document-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .document-card {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1 1 calc(20% - 40px);
+    max-width: calc(20% - 40px);
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .document-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .last-update {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 10px;
+  }
+  
+  .document-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .document-meta .category {
+    background-color: #d1fae5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .document-meta .version {
+    background-color: #f3f4f6;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .document-count {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .alert-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f87171;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+  }
+  
