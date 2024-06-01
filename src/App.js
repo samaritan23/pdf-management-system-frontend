@@ -3,7 +3,9 @@ import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Verify from './components/Verify';
 import './App.css';
+import Pdf from './components/Pdf';
 
 const router = createBrowserRouter([
   {
@@ -15,8 +17,16 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element: <Dashboard />
+  },
+  {
+    path: "/pdf",
+    element: <Pdf />
+  },
+  {
+    path: "/verify-email",
+    element: <Verify />
   }
 ]);
 

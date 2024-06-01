@@ -1,5 +1,10 @@
+body {
+  background-color: #f0f0f0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
 .App {
-  text-align: center;
+  text-align: center
 }
 
 .App-logo {

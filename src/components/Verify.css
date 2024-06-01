@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f5f0;
+  }
+  
+  /* Main signup page container */
+  .signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e6f5e6;
+  }
+  
+  .signup-container {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Left section */
+  .signup-left {
+    flex: 1;
+    background-color: #e6f5e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .signup-left-content {
+    text-align: center;
+  }
+  
+  .signup-image {
+    max-width: 50%;
+    height: auto;
+  }
+  
+  .signup-left h1 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .signup-left p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+  }
+
+  .signup-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+
+  
+  .message {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .success-message {
+    background-color: #e6ffe6;
+    color: #4CAF50;
+  }
+  
+  .error-message {
+    background-color: #ffe6e6;
+    color: #ff4d4d;
+  }
+  
+  .try-again-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4d4d;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .try-again-button:hover {
+    background-color: #ff6666;
+  }

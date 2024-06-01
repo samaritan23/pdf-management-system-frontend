@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
-import './Login.css'
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import "./Login.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import pdfImage from "../assets/pdf.png";
+import axios from "axios";
 
-function Login() {
+const Login = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    emailOrUsername: '',
-    password: ''
+    emailOrUsername: "",
+    password: "",
   });
+
+  const location = useLocation()
+  const verifiedMessage = location.state
+
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,23 +24,80 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/user/login', formData);
-      console.log(response.data); // Handle success, maybe redirect or show a success message
+      const response = await axios.post(
+        "http://localhost:3000/user/login",
+        formData
+      );
+      localStorage.setItem(`2023_token_fair_play`, response.data.token);
+      navigate("/dashboard");
     } catch (error) {
-      console.error('Login Error:', error); // Handle error, maybe show an error message
+      // console.log(error.response.data.message)
+      setErrorMessage(error.response.data.message);
+      if (errorMessage === 'Your Email is not verified please verify') {
+        navigate('/verify-email')
+      }
     }
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("2023_token_fair_play");
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, []);
+
   return (
-    <div className="form-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="emailOrUsername" placeholder="Email or Username" onChange={handleChange} />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} />
-        <button type="submit">Login</button>
-      </form>
+    <div className="signup-page">
+      <div className="signup-container">
+        <div className="signup-left">
+          <div className="signup-left-content">
+            <img
+              src={pdfImage}
+              alt="Exam Mastery Hub"
+              className="signup-image"
+            />
+            <h1>PDF Management System</h1>
+            <p>
+              Your Ultimate Solution for Effortless PDF Management and Secure
+              File Sharing
+            </p>
+          </div>
+        </div>
+        <div className="signup-right">
+          <form className="signup-form" onSubmit={handleSubmit}>
+            <h2>Sign In</h2>
+            <input
+              type="text"
+              name="emailOrUsername"
+              className="input-field"
+              placeholder="Username or email"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              name="password"
+              className="input-field"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+            {verifiedMessage && (
+              <div className="verified-message">{verifiedMessage}</div>
+            )}
+            <a href="/forgot-password" className="forgot-password">
+              Forgot password?
+            </a>
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
+            <button type="submit" className="signup-button">
+              Sign In
+            </button>
+            <div className="create-account">
+              Are you new? <a href="/">Create an Account</a>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default Login;
