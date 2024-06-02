@@ -1,0 +1,57 @@
+.document-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .document-card {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1 1 calc(20% - 40px);
+    max-width: calc(20% - 40px);
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+  }
+
+  .document-card-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .document-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .last-update {
+    font-size: 10px;
+    color: #6b7280;
+    margin-bottom: 10px;
+  }
+  
+  .document-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .document-meta .category {
+    background-color: #d1fae5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  .shared-tag {
+    top: 10px;
+    right: 10px;
+    background-color: #fca5a5;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }

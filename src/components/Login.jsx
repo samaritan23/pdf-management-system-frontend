@@ -83,9 +83,9 @@ const Login = () => {
             {verifiedMessage && (
               <div className="verified-message">{verifiedMessage}</div>
             )}
-            <a href="/forgot-password" className="forgot-password">
+            {/* <a href="/forgot-password" className="forgot-password">
               Forgot password?
-            </a>
+            </a> */}
             {errorMessage && <div className="error-message">{errorMessage}</div>}
             <button type="submit" className="signup-button">
               Sign In
