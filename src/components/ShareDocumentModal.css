@@ -26,6 +26,31 @@
   .invite-people {
     margin-bottom: 20px;
   }
+
+  .modal-content .box-textfield {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-content .box-textfield button {
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .modal-content .send-btn {
+    background: #ffff;
+    border: 1px solid #5bcb66;
+    color: #5bcb66;
+  }
+
+  .modal-content .send-btn:hover{
+    color: #ffff;
+    background-color: #5bcb66;
+  }
   
   .dropdown {
     position: relative;
@@ -111,7 +136,7 @@
   
   .modal-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding-top: 10px;
   }
   

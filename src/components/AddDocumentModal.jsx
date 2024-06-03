@@ -34,7 +34,7 @@ const AddDocumentModal = ({ isOpen, onRequestClose, onSubmit }) => {
     formData.append('file', document.file);
     formData.append('title', document.title);
     formData.append('category', document.category);
-    onSubmit(document, formData);
+    onSubmit(formData);
     onRequestClose();
   };
 

@@ -9,8 +9,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import { Delete, MoreVert, OpenInBrowser, Share } from "@mui/icons-material";
 import './DocumentCard.css'
+import axios from "axios";
 
-const DocumentCard = ({ doc }) => {
+const DocumentCard = ({ doc, onDocumentArchived }) => {
 	const [isSharedModalOpen, setIsSharedModalOpen] = useState(false);
 	const [anchorEl, setAnchorEl] = useState(null);
 	const openEl = Boolean(anchorEl);
@@ -33,6 +34,26 @@ const DocumentCard = ({ doc }) => {
 		handleCloseEl();
 	};
 
+	const handleDelete = async () => {
+        try {
+            await axios.patch(
+                `${process.env.REACT_APP_SERVER_DOMAIN}/documents/archive/${doc._id}`,
+                {},
+                {
+                    headers: {
+                        // "Content-Type": "multipart/form-data",
+                        Authorization: `Bearer ${localStorage.getItem("2023_token_fair_play")}`,
+                    },
+                }
+            );
+            onDocumentArchived(doc._id); 
+        } catch (error) {
+            console.error("Failed to archive the document:", error);
+        } finally {
+            handleCloseEl();
+        }
+    };
+
 	const getFormattedDate = (date) => {
 		let updatedAt = new Date(date * 1000);
 
@@ -52,8 +73,7 @@ const DocumentCard = ({ doc }) => {
 	return (
 		<div className="document-card">
 			<div className="document-card-header">
-				<h2>{doc.title}</h2>
-				{doc.isOwner === false && <span className="shared-tag">Shared</span>}
+				<h2 onClick={handleCardClick}>{doc.title}</h2>
 				<Tooltip title="Options">
 					<IconButton
 						onClick={handleClickEl}
@@ -115,7 +135,7 @@ const DocumentCard = ({ doc }) => {
 						Share
 					</MenuItem>
 					<Divider />
-					<MenuItem onClick={handleCloseEl}>
+					<MenuItem onClick={handleDelete}>
 						<ListItemIcon>
 							<Delete fontSize="small" />
 						</ListItemIcon>
@@ -138,7 +158,7 @@ const DocumentCard = ({ doc }) => {
 			<ShareDocumentModal
 				isOpen={isSharedModalOpen}
 				onRequestClose={() => setIsSharedModalOpen(false)}
-				documentId={doc.id}
+				documentId={doc._id}
 			/>
 		</div>
 	);

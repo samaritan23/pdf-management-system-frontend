@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/user/login",
+        `${process.env.REACT_APP_SERVER_DOMAIN}/user/login`,
         formData
       );
       localStorage.setItem(`2023_token_fair_play`, response.data.token);

@@ -16,7 +16,7 @@ const Verify = () => {
 
     const verifyEmail = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/user/verify-email?token=${token}`)
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_DOMAIN}/user/verify-email?token=${token}`)
     
         const data = await response.data
         if (data.success) {

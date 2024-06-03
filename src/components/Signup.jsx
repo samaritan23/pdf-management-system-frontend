@@ -24,7 +24,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       console.log(formData)
-      const response = await axios.post('http://localhost:3000/user/create', formData);
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/user/create`, formData);
       console.log(response.data); // Handle success, maybe redirect or show a success message
       navigate('/verify-email')
     } catch (error) {

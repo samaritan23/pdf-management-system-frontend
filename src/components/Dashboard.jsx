@@ -31,10 +31,10 @@ const Dashboard = () => {
     setAnchorEl(null);
   };
 
-  const handleAddDocument = async (newDocument, formData) => {
+  const handleAddDocument = async (formData) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/documents/upload",
+        `${process.env.REACT_APP_SERVER_DOMAIN}/documents/upload`,
         formData,
         {
           headers: {
@@ -48,7 +48,7 @@ const Dashboard = () => {
 
       const status = response.status;
       if (status === 200) {
-        setDocuments((prevDocuments) => [...prevDocuments, newDocument]);
+        fetchDocs()
       }
     } catch (error) {
       console.error("Error uploading document:", error);
@@ -67,7 +67,7 @@ const Dashboard = () => {
   const fetchDocs = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/documents/user-documents",
+        `${process.env.REACT_APP_SERVER_DOMAIN}/documents/user-documents`,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -77,14 +77,14 @@ const Dashboard = () => {
           },
         }
       );
-      
-      const json = await response.data
+
+      const json = await response.data;
       if (json.success) {
         setDocuments(json.data);
       }
     } catch (error) {
       if (error.response.status === 401) {
-        navigate('/login')
+        navigate("/login");
       }
       console.error("Error fetching documents:", error);
     }
@@ -99,6 +99,10 @@ const Dashboard = () => {
     }
   }, []);
 
+  const handleDocumentArchived = (documentId) => {
+    setDocuments(documents.filter(doc => doc._id !== documentId));
+  };
+
   return (
     <div className="dashboard">
       <div className="dashboard-header">
@@ -108,7 +112,10 @@ const Dashboard = () => {
             <button className="tab active">Documents</button>
             <button className="tab">Archived</button>
           </div>
-          <button className="add-document" onClick={() => setIsAddModalOpen(true)}>
+          <button
+            className="add-document"
+            onClick={() => setIsAddModalOpen(true)}
+          >
             <span className="icon">+</span>
             Add Document
           </button>
@@ -160,7 +167,7 @@ const Dashboard = () => {
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
           >
             <MenuItem onClick={handleCloseEl}>
-              <Avatar sx={{ width: 32, height: 32 }} /> Profile         
+              <Avatar sx={{ width: 32, height: 32 }} /> Profile
             </MenuItem>
             <Divider />
             <MenuItem onClick={handleLogout}>
@@ -184,7 +191,7 @@ const Dashboard = () => {
       {filteredDocuments.length > 0 && (
         <div className="document-cards">
           {filteredDocuments.map((doc, index) => (
-            <DocumentCard doc={doc} key={index} />
+            <DocumentCard doc={doc} key={index} onDocumentArchived={handleDocumentArchived} />
           ))}
         </div>
       )}
