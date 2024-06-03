@@ -1,4 +1,3 @@
-// ShareDocumentModal.jsx
 import React, { useState, useEffect } from "react";
 import {
   Modal,
@@ -9,9 +8,9 @@ import {
   Button,
   Alert,
   Snackbar,
-  CircularProgress,
+  CircularProgress
 } from "@mui/material";
-import LinkIcon from "@mui/icons-material/Link";
+import LinkIcon from '@mui/icons-material/Link';
 import axios from "axios";
 import "./ShareDocumentModal.css";
 import { Send } from "@mui/icons-material";
@@ -21,40 +20,36 @@ const ShareDocumentModal = ({ isOpen, onRequestClose, documentId }) => {
   const [selectedUser, setSelectedUser] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const [link, setLink] = useState("");
-  const [alert, setAlert] = useState({
-    open: false,
-    message: "",
-    severity: "success",
-  });
+  const [alert, setAlert] = useState({ open: false, message: "", severity: "success" });
   const [loading, setLoading] = useState(false);
   const [linkGenerated, setLinkGenerated] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("2023_token_fair_play");
+    const token = localStorage.getItem('2023_token_fair_play');
 
     const fetchAllUsers = async () => {
-      await axios.get(`${process.env.REACT_APP_SERVER_DOMAIN}/user/all`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setUsers(response.data.data);
-      })
-      .catch((error) => {
+        await axios.get(`${process.env.REACT_APP_SERVER_DOMAIN}/user/all`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+        })
+        .then((response) => {
+            console.log(response.data.data);
+            setUsers(response.data.data);
+        })
+        .catch((error) => {
         console.error("Error fetching users:", error);
-      });
-    };
+        });
+    }
 
     if (isOpen) {
-      fetchAllUsers();
+        fetchAllUsers();
     }
   }, [isOpen]);
 
-  const filteredUsers = users.filter(
-    (user) =>
-      user.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredUsers = users.filter((user) =>
+    user.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.email.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleSearchChange = (e) => {
@@ -67,77 +62,53 @@ const ShareDocumentModal = ({ isOpen, onRequestClose, documentId }) => {
   };
 
   const sendEmail = async (userId) => {
-    const token = localStorage.getItem("2023_token_fair_play");
+    console.log(documentId);
+    const token = localStorage.getItem('2023_token_fair_play');
 
     const data = {
-      userId,
+      userId
     };
 
+    console.log(data);
     setLoading(true);
 
-    await axios
-      .post(
-        `${process.env.REACT_APP_SERVER_DOMAIN}/documents/grant-access/${documentId}`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+    await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/documents/grant-access/${documentId}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
-        setAlert({
-          open: true,
-          message: response.data.message,
-          severity: "success",
-        });
+        console.log("Access granted:", response.data);
+        setAlert({ open: true, message: response.data.message, severity: "success" });
         setLoading(false);
         onRequestClose();
       })
       .catch((error) => {
         console.error("Error granting access:", error);
-        setAlert({
-          open: true,
-          message: error.response.data.message,
-          severity: "error",
-        });
+        setAlert({ open: true, message: error.response.data.message, severity: "error" });
         setLoading(false);
       });
   };
 
   const generateLink = async () => {
-    const token = localStorage.getItem("2023_token_fair_play");
+    const token = localStorage.getItem('2023_token_fair_play');
     setLoading(true);
 
-    await axios
-      .post(
-        `${process.env.REACT_APP_SERVER_DOMAIN}/documents/shareable-link/${documentId}`,
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+    await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/documents/shareable-link/${documentId}`, {}, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
-        setLink(
-          `${process.env.REACT_APP_PDF_LINK}?token=${response.data.data.shareLink}`
-        );
+        console.log("Link generated:", response.data);
+        setLink(`${process.env.REACT_APP_PDF_LINK}?token=${response.data.data.shareLink}`);
         setLinkGenerated(true);
-        setAlert({
-          open: true,
-          message: response.data.message,
-          severity: "success",
-        });
+        setAlert({ open: true, message: response.data.message, severity: "success" });
         setLoading(false);
       })
       .catch((error) => {
         console.error("Error generating link:", error);
-        setAlert({
-          open: true,
-          message: error.response.data.message,
-          severity: "error",
-        });
+        setAlert({ open: true, message: error.response.data.message, severity: "error" });
         setLoading(false);
       });
   };
@@ -155,24 +126,20 @@ const ShareDocumentModal = ({ isOpen, onRequestClose, documentId }) => {
           </div>
           <div className="modal-content">
             <Typography variant="subtitle1">Invite People</Typography>
-            <Box
-              className="box-textfield"
-              sx={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <TextField
-                variant="outlined"
-                placeholder="Add people by name"
-                value={searchQuery}
-                onChange={handleSearchChange}
+            <Box className='box-textfield' sx={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+            <TextField
+                  variant="outlined"
+                  placeholder="Add people by name or email"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  sx={{ width: '90%' }}
+                  size="small"
+                  margin="normal"
               />
               {loading ? (
                 <CircularProgress size={24} sx={{ marginLeft: 2 }} />
               ) : (
-                <Button
+                <Button 
                   className="send-btn"
                   onClick={() => sendEmail(selectedUser.userId)}
                   endIcon={<Send />}
@@ -184,13 +151,13 @@ const ShareDocumentModal = ({ isOpen, onRequestClose, documentId }) => {
             {searchQuery && (
               <div className="dropdown">
                 {filteredUsers.map((user) => (
-                  <MenuItem
-                    key={user.id}
-                    onClick={() => handleUserSelect(user)}
-                  >
-                    <Typography variant="body1">{user.fullName}</Typography>
-                  </MenuItem>
-                ))}
+                    <MenuItem
+                      key={user.id}
+                      onClick={() => handleUserSelect(user)}
+                    >
+                      <Typography variant="body1">{user.fullName}</Typography>
+                    </MenuItem>
+                  ))}
               </div>
             )}
             <div className="general-access">
@@ -198,7 +165,9 @@ const ShareDocumentModal = ({ isOpen, onRequestClose, documentId }) => {
               <div className="link">
                 <TextField
                   variant="outlined"
+                  sx={{ width: '70%' }}
                   value={link}
+                  size="small"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -207,12 +176,8 @@ const ShareDocumentModal = ({ isOpen, onRequestClose, documentId }) => {
                   className="copy-button"
                   variant="outlined"
                   startIcon={<LinkIcon />}
-                  sx={{ textTransform: "none" }}
-                  onClick={
-                    linkGenerated
-                      ? () => navigator.clipboard.writeText(link)
-                      : generateLink
-                  }
+                  sx={{ textTransform: 'none' }}
+                  onClick={linkGenerated ? () => navigator.clipboard.writeText(link) : generateLink}
                 >
                   {linkGenerated ? "Copy" : "Generate Link"}
                 </Button>
@@ -220,13 +185,9 @@ const ShareDocumentModal = ({ isOpen, onRequestClose, documentId }) => {
             </div>
           </div>
           <div className="modal-footer">
-            <Button
-              sx={{ textTransform: "none" }}
-              onClick={onRequestClose}
-              className="submit-button"
-            >
-              Done
-            </Button>
+              <Button sx={{ textTransform: 'none' }} onClick={onRequestClose} className="submit-button" >
+                  Done
+              </Button>
           </div>
         </Box>
       </Modal>

@@ -1,163 +1,164 @@
 .share-modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    background-color: white;
-    box-shadow: 24px;
-    padding: 16px;
-    border-radius: 8px;
-    outline: none;
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-  }
-  
-  .modal-content {
-    padding: 20px 0;
-  }
-  
-  .invite-people {
-    margin-bottom: 20px;
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background-color: white;
+  box-shadow: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  outline: none;
+}
 
-  .modal-content .box-textfield {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
 
-  .modal-content .box-textfield button {
-    font-size: 14px;
-    padding: 5px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+.modal-content {
+  padding: 20px 0;
+}
 
-  .modal-content .send-btn {
-    background: #ffff;
-    border: 1px solid #5bcb66;
-    color: #5bcb66;
-  }
+.invite-people {
+  margin-bottom: 20px;
+}
 
-  .modal-content .send-btn:hover{
-    color: #ffff;
-    background-color: #5bcb66;
-  }
-  
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .dropdown-item img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .selected-users {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-  }
-  
-  .selected-user {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    background: #eee;
-    padding: 5px 10px;
-    border-radius: 20px;
-  }
-  
-  .selected-user img {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  .selected-user button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: red;
-    font-size: 16px;
-    margin-left: 5px;
-  }
-  
-  .general-access {
-    margin-bottom: 20px;
-  }
-  
-  .general-access .link {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    justify-content: space-between;
-  }
-  
-  .general-access .link input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    border-right: none;
-  }
-  
-  .general-access .link .copy-button {
-    background: #ffff;
-    border: 1px solid #5bcb66;
-    color: #5bcb66;
-    border-radius: 20px;
-  }
+.modal-content .box-textfield {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-content .box-textfield button {
+  font-size: 14px;
+  padding: 5px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 95px;
+  margin-top: 11px;
+}
 
-  .general-access .link .copy-button:hover {
-    color: #ffff;
-    background-color: #5bcb66;
-    border-radius: 20px;
-  }
+.modal-content .send-btn {
+  background: #5bcb66;
+  border: 1px solid #5bcb66;
+  color: #ffff;
+  height: 50%;
+}
 
-  
-  .modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 10px;
-  }
-  
-  .modal-footer button {
-    font-size: 14px;
-    padding: 5px 15px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+.modal-content .send-btn:hover{
+  color: #5bcb66;
+  background-color: #ffff;
+}
 
-  .modal-footer .submit-button {
-    background: #ffff;
-    border: 1px solid #5bcb66;
-    color: #5bcb66;
-  }
+.dropdown {
+  position: relative;
+}
 
-  .modal-footer .submit-button:hover {
-    color: #ffff;
-    background-color: #5bcb66;
-  }
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
 
-  
+.dropdown-item img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.selected-users {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.selected-user {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.selected-user img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.selected-user button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.general-access {
+  margin-bottom: 20px;
+}
+
+.general-access .link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.general-access .link input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+}
+
+.general-access .link .copy-button {
+  background: #5bcb66;
+  border: 1px solid #5bcb66;
+  color: #ffff;
+  border-radius: 20px;
+}
+
+.general-access .link .copy-button:hover {
+  color: #5bcb66;
+  background-color: #ffff;
+  border-radius: 20px;
+}
+
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.modal-footer button {
+  font-size: 14px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.modal-footer .submit-button {
+  background: #5bcb66;
+  border: 1px solid #5bcb66;
+  color:#ffff;
+}
+
+.modal-footer .submit-button:hover {
+  color: #5bcb66;
+  background-color: #ffff;
+}
