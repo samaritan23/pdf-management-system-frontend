@@ -124,7 +124,7 @@ const Dashboard = () => {
               aria-haspopup="true"
               aria-expanded={openEl ? "true" : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+              <Avatar sx={{ width: 32, height: 32 }} />
             </IconButton>
           </Tooltip>
           <Menu
@@ -162,10 +162,6 @@ const Dashboard = () => {
             transformOrigin={{ horizontal: "right", vertical: "top" }}
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
           >
-            <MenuItem onClick={handleCloseEl}>
-              <Avatar sx={{ width: 32, height: 32 }} /> Profile
-            </MenuItem>
-            <Divider />
             <MenuItem onClick={handleLogout}>
               <ListItemIcon>
                 <Logout fontSize="small" />
