@@ -23,6 +23,7 @@ This project is a Document Management System built with React and Material-UI (M
 - Node.js
 - npm or yarn
 - React
+- React-Modal
 - Material-UI
 - Axios
 
