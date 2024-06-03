@@ -20,7 +20,7 @@ const ShareDocumentModal = ({ isOpen, onRequestClose, documentId }) => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
-  const [link, setLink] = useState("https://www.example.com");
+  const [link, setLink] = useState("");
   const [alert, setAlert] = useState({ open: false, message: "", severity: "success" });
   const [loading, setLoading] = useState(false);
   const [linkGenerated, setLinkGenerated] = useState(false);
