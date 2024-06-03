@@ -1,4 +1,4 @@
-# Document Management System
+# PDF Management System
 
 This project is a Document Management System built with React and Material-UI (MUI). It allows users to view PDF documents, share documents with other users, and generate shareable links. The project includes features such as user authentication, document viewing with PDF.js, and sharing functionality with access control.
 
