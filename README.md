@@ -1,6 +1,6 @@
 # PDF Management System
 
-This project is a Document Management System built with React and Material-UI (MUI). It allows users to view PDF documents, share documents with other users, and generate shareable links. The project includes features such as user authentication, document viewing amd commenting, and sharing functionality with access control.
+This project is a Document Management System built with React and Material-UI (MUI). It allows users to view PDF documents, share documents with other users, and generate shareable links. The project includes features such as user authentication, document viewing and commenting, and sharing functionality with access control.
 
 ## Screenshots
 <img width="600" alt="image" src="https://github.com/samaritan23/pdf-management-system-frontend/assets/88231536/64e51c3a-7f79-45a3-8b21-479d2c94f237">
