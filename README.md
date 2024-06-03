@@ -5,6 +5,8 @@ This project is a Document Management System built with React and Material-UI (M
 ## Screenshots
 <img width="600" alt="image" src="https://github.com/samaritan23/pdf-management-system-frontend/assets/88231536/64e51c3a-7f79-45a3-8b21-479d2c94f237">
 <img width="600" alt="image" src="https://github.com/samaritan23/pdf-management-system-frontend/assets/88231536/2e8a4493-c64f-4167-b0ec-c448c51a3417">
+<img width="600" alt="image" src="https://github.com/samaritan23/pdf-management-system-frontend/assets/88231536/c21887cd-5809-47d5-8c39-e7c931694490">
+
 
 ## Features
 
