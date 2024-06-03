@@ -66,10 +66,6 @@ const DocumentCard = ({ doc, onDocumentArchived }) => {
 		return formattedUpdatedDate;
 	};
 
-	useEffect(() => {
-		console.log(doc);
-	}, [doc]);
-
 	return (
 		<div className="document-card">
 			<div className="document-card-header">

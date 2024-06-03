@@ -23,9 +23,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(formData)
-      const response = await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/user/create`, formData);
-      console.log(response.data); // Handle success, maybe redirect or show a success message
+      await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/user/create`, formData);
       navigate('/verify-email')
     } catch (error) {
       console.error('Signup Error:', error.message); // Handle error, maybe show an error message

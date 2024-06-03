@@ -56,7 +56,7 @@ const AddDocumentModal = ({ isOpen, onRequestClose, onSubmit }) => {
           <input type="file" name="file" onChange={handleFileChange} required />
         </label>
         <div className="button-container">
-          <button type="submit">Add Document</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </Modal>

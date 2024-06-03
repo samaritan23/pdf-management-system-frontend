@@ -31,7 +31,6 @@ const Login = () => {
       localStorage.setItem(`2023_token_fair_play`, response.data.token);
       navigate("/dashboard");
     } catch (error) {
-      // console.log(error.response.data.message)
       setErrorMessage(error.response.data.message);
       if (errorMessage === 'Your Email is not verified please verify') {
         navigate('/verify-email')

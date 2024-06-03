@@ -68,14 +68,17 @@ form button[type="submit"] {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #007bff;
-  color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  background: #5bcb66;
+  color: #ffff;
 }
 
 form button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #ffff;
+  color: #5bcb66;
+  border: 1px solid #5bcb66;
 }
 
 /* Close button styling */

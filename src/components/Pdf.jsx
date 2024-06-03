@@ -85,7 +85,6 @@ const Pdf = () => {
             }
         })
             .then((response) => {
-                console.log(response.data);
                 setCurrentComment("");
                 fetchComments(doc._id);
             })

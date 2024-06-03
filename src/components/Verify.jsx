@@ -20,10 +20,8 @@ const Verify = () => {
     
         const data = await response.data
         if (data.success) {
-          console.log(data)
           navigate("/login", { state: data.message });
         } else {
-          console.log(data)
           setMessage('Please refresh and try again.')
         }
       } catch (error) {
