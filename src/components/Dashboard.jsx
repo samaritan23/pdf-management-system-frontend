@@ -108,10 +108,6 @@ const Dashboard = () => {
       <div className="dashboard-header">
         <h1>Documents</h1>
         <div className="dashboard-controls">
-          <div className="dashboard-tabs">
-            <button className="tab active">Documents</button>
-            <button className="tab">Archived</button>
-          </div>
           <button
             className="add-document"
             onClick={() => setIsAddModalOpen(true)}
