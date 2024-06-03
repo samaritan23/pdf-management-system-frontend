@@ -13,6 +13,7 @@ This project is a Document Management System built with React and Material-UI (M
 - User Authentication
 - PDF Document Viewing
 - Sharing Documents with Other Users
+- Commenting on accessible documents
 - Generating Shareable Links
 - Access Control for Documents
 - Responsive Design with Material-UI
